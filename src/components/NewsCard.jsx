@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
   console.log("News Data:", news);
@@ -14,11 +15,17 @@ const NewsCard = ({ news }) => {
         src={image_url}
         alt={title}
         className="w-full object-cover rounded-lg mb-4"
-      />
+          />
+          
 
       <div className="mt-4">
         <h2 className="text-xl font-bold mb-2">{title}</h2>
-        <p className="text-gray-600 text-sm mb-4">{details.slice(0, 150)}...</p>
+              <p className="text-gray-600 text-sm mb-4">{details.slice(0, 150)}...{" "}
+                  <Link to={`/news/${news._id}`}
+                      className="text-primary">
+                      Read More
+                  </Link>
+              </p>
 
         <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
           <span>By: {author?.name || "Unknown"}</span>

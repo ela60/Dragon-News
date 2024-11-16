@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Result } from 'postcss';
 
 const Login = () => {
-    const {userLogin,setUser}=useContext(AuthContext)
+    const { userLogin, setUser } = useContext(AuthContext);
+    const location = useLocation();
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
